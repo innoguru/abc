@@ -1,7 +1,8 @@
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
-tokenizer = AutoTokenizer.from_pretrained("google/flan-t5-xxl")
-model = AutoModelForSeq2SeqLM.from_pretrained("google/flan-t5-xxl")
+tokenizer = AutoTokenizer.from_pretrained("google/flan-t5-xl")
+
+model = AutoModelForSeq2SeqLM.from_pretrained("google/flan-t5-xl")
 
 def ask_question(question):
     input_prompt = f"{question}"
