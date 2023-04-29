@@ -10,7 +10,7 @@ def ask_question(question, context):
     answer = tokenizer.decode(output_ids[0], skip_special_tokens=True)
     return answer
 
-context = "OpenAI is an artificial intelligence research lab consisting of the for-profit corporation OpenAI LP and its parent company, the non-profit OpenAI Inc. It was founded in December 2015 by Elon Musk, Sam Altman, and others."
+context = "OpenAI is an artificial intelligence research lab consisting of the for-profit corporation OpenAI LP and its parent company, the non-profit OpenAI Inc."
 question = "Who founded OpenAI?"
 
 answer = ask_question(question, context)
