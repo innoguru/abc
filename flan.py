@@ -1,10 +1,17 @@
-from transformers import T5Tokenizer, T5ForConditionalGeneration
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
-tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-xxl")
-model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-xxl", device_map="auto")
+tokenizer = AutoTokenizer.from_pretrained("google/flan-t5-xl")
+model = AutoModelForSeq2SeqLM.from_pretrained("google/flan-t5-xl")
 
-input_text = "translate English to German: How old are you?"
-input_ids = tokenizer(input_text, return_tensors="pt").input_ids.to("cuda")
+def ask_question(question, context):
+    input_prompt = f"{question}"
+    input_ids = tokenizer.encode(input_prompt, return_tensors="pt")
+    output_ids = model.generate(input_ids)
+    answer = tokenizer.decode(output_ids[0], skip_special_tokens=True)
+    return answer
 
-outputs = model.generate(input_ids)
-print(tokenizer.decode(outputs[0]))
+context = ""
+question = "What is the second amendment?"
+
+answer = ask_question(question, context)
+print(answer)
