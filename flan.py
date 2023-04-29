@@ -6,7 +6,7 @@ model = AutoModelForSeq2SeqLM.from_pretrained("google/flan-t5-xl")
 def ask_question(question, num_answers=3):
     input_prompt = f"{question}"
     input_ids = tokenizer.encode(input_prompt, return_tensors="pt")
-    output_ids = model.generate(input_ids, num_return_sequences=num_answers)
+    output_ids = model.generate(input_ids, num_return_sequences=num_answers, num_beams=5, early_stopping=True)
     
     answers = []
     for idx in range(num_answers):
