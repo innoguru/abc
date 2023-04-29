@@ -1,7 +1,7 @@
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
-tokenizer = AutoTokenizer.from_pretrained("google/flan-t5-xl")
-model = AutoModelForSeq2SeqLM.from_pretrained("google/flan-t5-xl")
+tokenizer = AutoTokenizer.from_pretrained("google/flan-t5-xxl")
+model = AutoModelForSeq2SeqLM.from_pretrained("google/flan-t5-xxl")
 
 def ask_question(question, context):
     input_prompt = f"{question}"
@@ -11,7 +11,7 @@ def ask_question(question, context):
     return answer
 
 context = ""
-question = "What is the second amendment?"
+question = "What is the second amendment and when was it written? Write a little essay about it."
 
 answer = ask_question(question, context)
 print(answer)
