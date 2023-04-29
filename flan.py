@@ -11,7 +11,7 @@ def ask_question(question):
     answer = tokenizer.decode(output_ids[0], skip_special_tokens=True)
     return answer
 
-question = "What is the second amendment?"
+question = "What is the second amendment and when was it written? Write a little essay about it."
 
 answer = ask_question(question)
 print(answer)
