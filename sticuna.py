@@ -1,7 +1,7 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-tokenizer = AutoTokenizer.from_pretrained("path/to/stable-vicuna-13b-applied")
-model = AutoModelForCausalLM.from_pretrained("path/to/stable-vicuna-13b-applied")
+tokenizer = AutoTokenizer.from_pretrained("stable-vicuna-13b")
+model = AutoModelForCausalLM.from_pretrained("stable-vicuna-13b")
 model.half().cuda()
 
 prompt = """\
